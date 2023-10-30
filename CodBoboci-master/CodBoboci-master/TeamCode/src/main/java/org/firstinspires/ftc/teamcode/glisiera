@@ -1,0 +1,14 @@
+import com.qualcomm.robotcore.hardware.DcMotor;
+
+public class Glisiera {
+
+    private DcMotor Glisiera;
+    double x = 1;
+    public SliderSubsystem(DcMotor motor) {
+        Glisiera = motor;
+    }
+
+    public void moveSlider(double power) {
+        sliderMotor.setPower(x);
+    }
+}

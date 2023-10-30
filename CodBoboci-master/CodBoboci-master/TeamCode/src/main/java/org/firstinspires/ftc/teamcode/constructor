@@ -1,0 +1,17 @@
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.acmerobotics.roadrunner.drive.Drive;
+import com.acmerobotics.roadrunner.drive.SampleMecanumDrive;
+
+public class Robot {
+
+    private Drive drive;
+
+    public Robot(HardwareMap hardwareMap) {
+        drive = new SampleMecanumDrive(hardwareMap);
+        drive.setMode(Drive.Mode.TELEOP);
+    }
+
+    public Drive getDrive() {
+        return drive;
+    }
+}

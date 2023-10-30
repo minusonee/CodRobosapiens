@@ -1,0 +1,31 @@
+import com.acmerobotics.roadrunner.control.PIDCoefficients;
+import com.acmerobotics.roadrunner.drive.Drive;
+import com.acmerobotics.roadrunner.drive.SampleMecanumDrive;
+import com.acmerobotics.roadrunner.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
+public class TeleOpExemplu extends OpMode {
+
+    private Drive drive;
+
+    public void init() {
+        drive = new SampleMecanumDrive(hardwareMap);
+        drive.setMode(Drive.Mode.TELEOP);
+
+        PIDCoefficients pidCoefficients = new PIDCoefficients(1.0, 0, 0);
+        drive.setDrivePIDCoefficients(pidCoefficients);
+        drive.setTurnPIDCoefficients(pidCoefficients);
+    }
+
+    public void loop() {
+
+        double drivePower = gamepad1.left_stick_y;
+        double strafePower = gamepad1.left_stick_x;
+        double turnPower = gamepad1.right_stick_x;
+
+        drive.setWeightedDrivePower(drivePower, strafePower, turnPower);
+
+        drive.update();
+
+    }
+}
