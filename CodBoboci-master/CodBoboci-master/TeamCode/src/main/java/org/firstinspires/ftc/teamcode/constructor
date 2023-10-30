@@ -1,17 +1,45 @@
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.acmerobotics.roadrunner.drive.Drive;
-import com.acmerobotics.roadrunner.drive.SampleMecanumDrive;
+public class RobotCuRotiSiGlisiera {
 
-public class Robot {
+    private int putereMotorStangaFata;
+    private int putereMotorStangaSpate;
+    private int putereMotorDreaptaFata;
+    private int putereMotorDreaptaSpate;
+    private int x;
+    private int y;
+    private boolean glisieraExtinsa;
 
-    private Drive drive;
-
-    public Robot(HardwareMap hardwareMap) {
-        drive = new SampleMecanumDrive(hardwareMap);
-        drive.setMode(Drive.Mode.TELEOP);
+    public RobotCuRotiSiGlisiera() {
+        putereMotorStangaFata = 0;
+        putereMotorStangaSpate = 0;
+        putereMotorDreaptaFata = 0;
+        putereMotorDreaptaSpate = 0;
+        glisieraExtinsa = false;
     }
 
-    public Drive getDrive() {
-        return drive;
+    public void setPutereMotorStangaFata(int putere1) {
+        putereMotorStangaFata = putere1;
+    }
+
+    public void setPutereMotorStangaSpate(int putere2) {
+        putereMotorStangaSpate = putere2;
+    }
+
+    public void setPutereMotorDreaptaFata(int putere3) {
+        putereMotorDreaptaFata = putere3;
+    }
+
+    public void setPutereMotorDreaptaSpate(int putere4) {
+        putereMotorDreaptaSpate = putere4;
+    }
+
+    public void actioneazaGlisiera(boolean extinde) {
+        glisieraExtinsa = extinde;
+    }
+
+    public static void main(String[] args) {
+        RobotCuRotiSiGlisiera robot = new RobotCuRotiSiGlisiera();
+        robot.setPutereMotorStangaFata(x);
+        robot.setPutereMotorDreaptaFata(y);
+        robot.actioneazaGlisiera(true);
     }
 }
