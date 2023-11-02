@@ -1,45 +1,32 @@
-public class RobotCuRotiSiGlisiera {
+package org.firstinspires.ftc.teamcode;
 
-    private int putereMotorStangaFata;
-    private int putereMotorStangaSpate;
-    private int putereMotorDreaptaFata;
-    private int putereMotorDreaptaSpate;
-    private int x;
-    private int y;
-    private boolean glisieraExtinsa;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-    public RobotCuRotiSiGlisiera() {
-        putereMotorStangaFata = 0;
-        putereMotorStangaSpate = 0;
-        putereMotorDreaptaFata = 0;
-        putereMotorDreaptaSpate = 0;
-        glisieraExtinsa = false;
-    }
+@TeleOp
+public class LinearOpModeExample extends LinearOpMode {
+	@Override
+	public void runOpMode() {
+		int loop_counter = 0;
+		resetStartTime();
+		telemetry.addLine(getRuntime());
+		telemetry.update();
 
-    public void setPutereMotorStangaFata(int putere1) {
-        putereMotorStangaFata = putere1;
-    }
+		while (!isStarted() && opModeIsActive()) {
+			telemetry.addData(loop_counter);
+			telemetry.update();
+			loop_counter++;
+		}
+		telemetry.addLine(getRuntime());
+		telemetry.update();
+		loop_counter = 0;
 
-    public void setPutereMotorStangaSpate(int putere2) {
-        putereMotorStangaSpate = putere2;
-    }
-
-    public void setPutereMotorDreaptaFata(int putere3) {
-        putereMotorDreaptaFata = putere3;
-    }
-
-    public void setPutereMotorDreaptaSpate(int putere4) {
-        putereMotorDreaptaSpate = putere4;
-    }
-
-    public void actioneazaGlisiera(boolean extinde) {
-        glisieraExtinsa = extinde;
-    }
-
-    public static void main(String[] args) {
-        RobotCuRotiSiGlisiera robot = new RobotCuRotiSiGlisiera();
-        robot.setPutereMotorStangaFata(x);
-        robot.setPutereMotorDreaptaFata(y);
-        robot.actioneazaGlisiera(true);
-    }
+		while (opModeIsActive()) {
+			telemetry.addData(loop_counter);
+			telemetry.update();
+			loop_counter++;
+		}
+		telemetry.addLine(getRuntime());
+		telemetry.update();
+	}
 }
