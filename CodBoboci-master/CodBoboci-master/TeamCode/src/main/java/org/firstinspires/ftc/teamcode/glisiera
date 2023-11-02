@@ -8,7 +8,7 @@ public class Glisiera {
         Glisiera = motor;
     }
 
-    public void moveSlider(double power) {
+    public void moveSlider() {
         sliderMotor.setPower(x);
     }
 }
